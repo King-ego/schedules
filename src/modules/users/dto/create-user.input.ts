@@ -8,5 +8,4 @@ export class CreateUserInput {
   @IsString()
   @Type(() => String)
   name: string;
-
 }
