@@ -1,5 +1,14 @@
 version: '3.8'
 services:
+  postgres:
+    image: postgis/postgis:17-3.4
+    container_name: postgres
+    environment:
+      POSTGRES_USER: diego
+      POSTGRES_PASSWORD: xpKk5sbJVUyWB6eLACh
+      POSTGRES_DB: schedules_postgres
+    ports:
+      - "5432:5432"
   nest-app:
     build:
       context: .
