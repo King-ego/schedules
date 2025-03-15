@@ -19,17 +19,17 @@ export class UsersResolver {
   }
 
   @Query(() => User)
-  findOne(@Args("id") id: number) {
+  findOne(@Args("id") id: string) {
     return this.usersService.findOne(id);
   }
 
-  @Query(() => User)
+  @Mutation(() => User)
   update(@Args("updateUserInput") updateUserInput: UpdateUserInput) {
     return this.usersService.update(updateUserInput.id, updateUserInput);
   }
 
-  @Query(() => User)
-  remove(@Args("id") id: number) {
+  @Mutation(() => User)
+  remove(@Args("id") id: string) {
     return this.usersService.remove(id);
   }
 }
