@@ -40,11 +40,12 @@ export class UsersService {
     });
   }
 
-  public async update(id: string, updateUserInput: UpdateUserInput) {
+  public async update( updateUserInput: UpdateUserInput) {
+    const { id, ...rest } = updateUserInput;
     return this.prismaPostgres.user.update({
       where: { id },
       data: {
-        ...updateUserInput,
+        ...rest,
       },
     });
   }
