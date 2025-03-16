@@ -116,7 +116,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/home/diego/Projeto/agendamento/prisma/client/mongo",
+      "value": "/usr/src/app/prisma/client/mongo",
       "fromEnvVar": null
     },
     "config": {
@@ -130,11 +130,11 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/home/diego/Projeto/agendamento/prisma/mongo/schema.prisma",
+    "sourceFilePath": "/usr/src/app/prisma/mongo/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../../.env"
   },
   "relativePath": "../../mongo",
@@ -144,7 +144,6 @@ const config = {
     "mongodb"
   ],
   "activeProvider": "mongodb",
-  "postinstall": false,
   "inlineDatasources": {
     "mongodb": {
       "url": {
