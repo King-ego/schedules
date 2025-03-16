@@ -8,4 +8,14 @@ export class CreateUserInput {
   @IsString()
   @Type(() => String)
   name: string;
+
+  @Field()
+  @IsString()
+  @Type(() => String)
+  email: string;
+
+  @Field()
+  @IsString()
+  @Type(() => String)
+  password: string;
 }

@@ -1,35 +1,57 @@
 import { Injectable } from "@nestjs/common";
 import { CreateUserInput } from "./dto/create-user.input";
 import { UpdateUserInput } from "./dto/update-user.input";
+import PrismaGateway, {
+  PrismaClientPostgres,
+} from "../../shared/prisma/prisma.gateway";
 
 const temporaryUsers = [
-    { id: "1", name: "Diego" },
-    { id: "2", name: "Diego" },
-    { id: "3", name: "Diego" },
-]
+  { id: "1", name: "Diego" },
+  { id: "2", name: "Diego" },
+  { id: "3", name: "Diego" },
+];
 
 @Injectable()
 export class UsersService {
-  create(createUserInput: CreateUserInput) {
-    console.log({ id: "1", name: createUserInput.name });
-    return temporaryUsers[0];
+  private readonly prismaPostgres: PrismaClientPostgres;
+  constructor() {
+    this.prismaPostgres = new PrismaGateway().getPrismaPostgres();
   }
 
-  findAll() {
-    return temporaryUsers;
+  public async create(createUserInput: CreateUserInput) {
+    return this.prismaPostgres.user.create({
+      data: {
+        name: createUserInput.name,
+        email: createUserInput.email,
+        password: createUserInput.password,
+      },
+    });
   }
 
-  findOne(id: string) {
-    console.log(`This action returns a #${id} user`);
-    return temporaryUsers[0];
+  public async findAll() {
+    return this.prismaPostgres.user.findMany();
   }
 
-  update(id: number, updateUserInput: UpdateUserInput) {
-    console.log(`This action updates a #${id} user, ${updateUserInput.id}`);
-    return temporaryUsers[0];
+  public async findOne(id: string) {
+    return this.prismaPostgres.user.findUnique({
+      where: {
+        id: id,
+      },
+    });
   }
 
-  remove(id: string) {
-    return temporaryUsers[0];
+  public async update(id: string, updateUserInput: UpdateUserInput) {
+    return this.prismaPostgres.user.update({
+      where: { id },
+      data: {
+        ...updateUserInput,
+      },
+    });
+  }
+
+  public async remove(id: string) {
+    return this.prismaPostgres.user.delete({
+      where: { id },
+    });
   }
 }
