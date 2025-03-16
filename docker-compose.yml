@@ -1,5 +1,25 @@
 version: '3.8'
 services:
+  mongodb:
+    image: mongo:6.0.9
+    container_name: mongodb
+    ports:
+      - "27017:27017" # Porta do banco de dados
+    volumes:
+      - ./data:/data/mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: diego
+      MONGO_INITDB_ROOT_PASSWORD: xpKk5sbJVUyWB6eLACh
+      MONGO_INITDB_DATABASE: schedules_mongo
+  postgres:
+    image: postgis/postgis:17-3.4
+    container_name: postgres
+    environment:
+      POSTGRES_USER: diego
+      POSTGRES_PASSWORD: xpKk5sbJVUyWB6eLACh
+      POSTGRES_DB: schedules_postgres
+    ports:
+      - "5432:5432"
   nest-app:
     build:
       context: .
