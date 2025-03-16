@@ -14,6 +14,7 @@ const temporaryUsers = [
 @Injectable()
 export class UsersService {
   private readonly prismaPostgres: PrismaClientPostgres;
+
   constructor() {
     this.prismaPostgres = new PrismaGateway().getPrismaPostgres();
   }
@@ -40,11 +41,12 @@ export class UsersService {
     });
   }
 
-  public async update(id: string, updateUserInput: UpdateUserInput) {
+  public async update(updateUserInput: UpdateUserInput) {
+    const { id, ...rest } = updateUserInput;
     return this.prismaPostgres.user.update({
-      where: { id },
+      where: { id: id },
       data: {
-        ...updateUserInput,
+        ...rest,
       },
     });
   }
