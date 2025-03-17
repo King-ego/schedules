@@ -25,7 +25,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:3000" # Porta do servidor NestJS
+      - "3030:3030" # Porta do servidor NestJS
     volumes:
       - .:/usr/src/app # Monta o código local no contêiner
       - /usr/src/app/node_modules # Protege o diretório node_modules do contêiner
