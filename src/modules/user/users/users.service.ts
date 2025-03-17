@@ -3,13 +3,7 @@ import { CreateUserInput } from "./dto/create-user.input";
 import { UpdateUserInput } from "./dto/update-user.input";
 import PrismaGateway, {
   PrismaClientPostgres,
-} from "../../shared/prisma/prisma.gateway";
-
-const temporaryUsers = [
-  { id: "1", name: "Diego" },
-  { id: "2", name: "Diego" },
-  { id: "3", name: "Diego" },
-];
+} from "../../../shared/prisma/prisma.gateway";
 
 @Injectable()
 export class UsersService {
