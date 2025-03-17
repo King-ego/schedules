@@ -13,5 +13,5 @@ model Comment {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
   content    String
-  author     String
+  author_id  String
 }

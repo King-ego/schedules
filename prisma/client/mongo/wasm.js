@@ -115,7 +115,7 @@ exports.Prisma.CommentScalarFieldEnum = {
   created_at: 'created_at',
   updated_at: 'updated_at',
   content: 'content',
-  author: 'author'
+  author_id: 'author_id'
 };
 
 exports.Prisma.SortOrder = {

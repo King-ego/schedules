@@ -838,7 +838,7 @@ export namespace Prisma {
     created_at: Date | null
     updated_at: Date | null
     content: string | null
-    author: string | null
+    author_id: string | null
   }
 
   export type CommentMaxAggregateOutputType = {
@@ -846,7 +846,7 @@ export namespace Prisma {
     created_at: Date | null
     updated_at: Date | null
     content: string | null
-    author: string | null
+    author_id: string | null
   }
 
   export type CommentCountAggregateOutputType = {
@@ -854,7 +854,7 @@ export namespace Prisma {
     created_at: number
     updated_at: number
     content: number
-    author: number
+    author_id: number
     _all: number
   }
 
@@ -864,7 +864,7 @@ export namespace Prisma {
     created_at?: true
     updated_at?: true
     content?: true
-    author?: true
+    author_id?: true
   }
 
   export type CommentMaxAggregateInputType = {
@@ -872,7 +872,7 @@ export namespace Prisma {
     created_at?: true
     updated_at?: true
     content?: true
-    author?: true
+    author_id?: true
   }
 
   export type CommentCountAggregateInputType = {
@@ -880,7 +880,7 @@ export namespace Prisma {
     created_at?: true
     updated_at?: true
     content?: true
-    author?: true
+    author_id?: true
     _all?: true
   }
 
@@ -961,7 +961,7 @@ export namespace Prisma {
     created_at: Date
     updated_at: Date
     content: string
-    author: string
+    author_id: string
     _count: CommentCountAggregateOutputType | null
     _min: CommentMinAggregateOutputType | null
     _max: CommentMaxAggregateOutputType | null
@@ -986,7 +986,7 @@ export namespace Prisma {
     created_at?: boolean
     updated_at?: boolean
     content?: boolean
-    author?: boolean
+    author_id?: boolean
   }, ExtArgs["result"]["comment"]>
 
 
@@ -996,10 +996,10 @@ export namespace Prisma {
     created_at?: boolean
     updated_at?: boolean
     content?: boolean
-    author?: boolean
+    author_id?: boolean
   }
 
-  export type CommentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "created_at" | "updated_at" | "content" | "author", ExtArgs["result"]["comment"]>
+  export type CommentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "created_at" | "updated_at" | "content" | "author_id", ExtArgs["result"]["comment"]>
 
   export type $CommentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Comment"
@@ -1009,7 +1009,7 @@ export namespace Prisma {
       created_at: Date
       updated_at: Date
       content: string
-      author: string
+      author_id: string
     }, ExtArgs["result"]["comment"]>
     composites: {}
   }
@@ -1406,7 +1406,7 @@ export namespace Prisma {
     readonly created_at: FieldRef<"Comment", 'DateTime'>
     readonly updated_at: FieldRef<"Comment", 'DateTime'>
     readonly content: FieldRef<"Comment", 'String'>
-    readonly author: FieldRef<"Comment", 'String'>
+    readonly author_id: FieldRef<"Comment", 'String'>
   }
     
 
@@ -1764,7 +1764,7 @@ export namespace Prisma {
     created_at: 'created_at',
     updated_at: 'updated_at',
     content: 'content',
-    author: 'author'
+    author_id: 'author_id'
   };
 
   export type CommentScalarFieldEnum = (typeof CommentScalarFieldEnum)[keyof typeof CommentScalarFieldEnum]
@@ -1844,7 +1844,7 @@ export namespace Prisma {
     created_at?: DateTimeFilter<"Comment"> | Date | string
     updated_at?: DateTimeFilter<"Comment"> | Date | string
     content?: StringFilter<"Comment"> | string
-    author?: StringFilter<"Comment"> | string
+    author_id?: StringFilter<"Comment"> | string
   }
 
   export type CommentOrderByWithRelationInput = {
@@ -1852,7 +1852,7 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrder
     content?: SortOrder
-    author?: SortOrder
+    author_id?: SortOrder
   }
 
   export type CommentWhereUniqueInput = Prisma.AtLeast<{
@@ -1863,7 +1863,7 @@ export namespace Prisma {
     created_at?: DateTimeFilter<"Comment"> | Date | string
     updated_at?: DateTimeFilter<"Comment"> | Date | string
     content?: StringFilter<"Comment"> | string
-    author?: StringFilter<"Comment"> | string
+    author_id?: StringFilter<"Comment"> | string
   }, "id">
 
   export type CommentOrderByWithAggregationInput = {
@@ -1871,7 +1871,7 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrder
     content?: SortOrder
-    author?: SortOrder
+    author_id?: SortOrder
     _count?: CommentCountOrderByAggregateInput
     _max?: CommentMaxOrderByAggregateInput
     _min?: CommentMinOrderByAggregateInput
@@ -1885,7 +1885,7 @@ export namespace Prisma {
     created_at?: DateTimeWithAggregatesFilter<"Comment"> | Date | string
     updated_at?: DateTimeWithAggregatesFilter<"Comment"> | Date | string
     content?: StringWithAggregatesFilter<"Comment"> | string
-    author?: StringWithAggregatesFilter<"Comment"> | string
+    author_id?: StringWithAggregatesFilter<"Comment"> | string
   }
 
   export type CommentCreateInput = {
@@ -1893,7 +1893,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     content: string
-    author: string
+    author_id: string
   }
 
   export type CommentUncheckedCreateInput = {
@@ -1901,21 +1901,21 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     content: string
-    author: string
+    author_id: string
   }
 
   export type CommentUpdateInput = {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     content?: StringFieldUpdateOperationsInput | string
-    author?: StringFieldUpdateOperationsInput | string
+    author_id?: StringFieldUpdateOperationsInput | string
   }
 
   export type CommentUncheckedUpdateInput = {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     content?: StringFieldUpdateOperationsInput | string
-    author?: StringFieldUpdateOperationsInput | string
+    author_id?: StringFieldUpdateOperationsInput | string
   }
 
   export type CommentCreateManyInput = {
@@ -1923,21 +1923,21 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     content: string
-    author: string
+    author_id: string
   }
 
   export type CommentUpdateManyMutationInput = {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     content?: StringFieldUpdateOperationsInput | string
-    author?: StringFieldUpdateOperationsInput | string
+    author_id?: StringFieldUpdateOperationsInput | string
   }
 
   export type CommentUncheckedUpdateManyInput = {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     content?: StringFieldUpdateOperationsInput | string
-    author?: StringFieldUpdateOperationsInput | string
+    author_id?: StringFieldUpdateOperationsInput | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -1971,7 +1971,7 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrder
     content?: SortOrder
-    author?: SortOrder
+    author_id?: SortOrder
   }
 
   export type CommentMaxOrderByAggregateInput = {
@@ -1979,7 +1979,7 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrder
     content?: SortOrder
-    author?: SortOrder
+    author_id?: SortOrder
   }
 
   export type CommentMinOrderByAggregateInput = {
@@ -1987,7 +1987,7 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrder
     content?: SortOrder
-    author?: SortOrder
+    author_id?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
