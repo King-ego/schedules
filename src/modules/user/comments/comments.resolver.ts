@@ -1,4 +1,4 @@
-import { Mutation, Resolver, Args } from "@nestjs/graphql";
+import { Mutation, Resolver, Args, Query } from "@nestjs/graphql";
 import { CommentsService } from "./comments.service";
 import { Comments } from "../entity/comments";
 import { CreateCommentsInput } from "../dto/create-comments.input";
@@ -7,7 +7,14 @@ import { CreateCommentsInput } from "../dto/create-comments.input";
 export class CommentsResolver {
   constructor(private readonly commentsService: CommentsService) {}
   @Mutation(() => Comments)
-  public async createComment(@Args("createCommentInput") createCommentInput: CreateCommentsInput) {
+  public async createComment(
+    @Args("createCommentInput") createCommentInput: CreateCommentsInput,
+  ) {
     return this.commentsService.create(createCommentInput);
+  }
+
+  @Query(() => [Comments])
+  public async findAll(@Args("id") id: string) {
+    return this.commentsService.findAll(id);
   }
 }
