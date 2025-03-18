@@ -14,7 +14,7 @@ export class CommentsResolver {
   }
 
   @Query(() => [Comments])
-  public async findAll(@Args("id") id: string) {
-    return this.commentsService.findAll(id);
+  public async findAllComments() {
+    return  this.commentsService.findAll();
   }
 }

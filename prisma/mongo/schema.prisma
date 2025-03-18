@@ -9,9 +9,11 @@ datasource mongodb {
 }
 
 model Comment {
-  id         String   @id @default(uuid()) @map("_id")
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+  id         String   @id @default(auto()) @map("_id") @mongodb.ObjectId
   content    String
   author_id  String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("comment")
 }
